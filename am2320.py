@@ -56,7 +56,10 @@ class AM2320:
     # Byte 6: CRC lsb byte
     # Byte 7: CRC msb byte
     data = bytearray(posix.read(fd, 8))
-  
+    
+    #Close the file descriptor to tidy up
+    posix.close(fd)
+    
     # Check data[0] and data[1]
     if data[0] != 0x03 or data[1] != 0x04:
       raise Exception("First two read bytes are a mismatch")
