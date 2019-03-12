@@ -56,6 +56,9 @@ class AM2320:
     # Byte 6: CRC lsb byte
     # Byte 7: CRC msb byte
     data = bytearray(os.read(fd, 8))
+    
+    # Close the file descriptor:
+    os.close(fd)
   
     # Check data[0] and data[1]
     if data[0] != 0x03 or data[1] != 0x04:
