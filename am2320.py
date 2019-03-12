@@ -85,3 +85,9 @@ class AM2320:
 
     return (temp, humi)  
 
+
+if __name__ == '__main__':
+    sensor = AM2320(1)
+    (t,h) = sensor.readSensor()
+    print("Temperature:", t)
+    print("Humidity:", h)
