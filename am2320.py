@@ -30,7 +30,7 @@ class AM2320:
 
 
   def readSensor(self):
-    fd = os.open("/dev/i2c-%d" % self._i2cbus, posix.O_RDWR)
+    fd = os.open("/dev/i2c-%d" % self._i2cbus, os.O_RDWR)
 
     ioctl(fd, self.I2C_SLAVE, self.I2C_ADDR)
   
